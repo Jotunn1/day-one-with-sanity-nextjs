@@ -9,6 +9,10 @@ export const client = createClient({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: "2024-01-01",
   useCdn: true,
+  stega: {
+    enabled: process.env.NEXT_PUBLIC_VERCEL_ENV === "preview",
+    studioUrl: "/studio",
+  },
 });
 
 export async function sanityFetch<QueryResponse>({
